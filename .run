@@ -1,0 +1,10 @@
+echo "Starting Build"
+yacc -d calc.yacc --debug --verbose
+lex calc.lex
+cc -o .build y.tab.c lex.yy.c
+echo "Cleaning"
+rm lex.yy.c
+rm y.tab.c
+rm y.tab.h
+echo "Starting Shell"
+./.build
